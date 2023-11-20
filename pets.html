@@ -212,27 +212,38 @@
         <img src="images/icon.png" alt="Palette Icon" class="icon">
     </footer>
 
+    <div id="clock"></div>
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+  
+        hours = hours < 10 ? '0' + hours : hours;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+  
+        var clockElement = document.getElementById('clock');
+        clockElement.textContent = hours + ':' + minutes + ':' + seconds;
+      }
+  
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+    
 </body>
 
-  <div id="clock"></div>
-  <script>
-    function updateClock() {
-      var now = new Date();
-      var hours = now.getHours();
-      var minutes = now.getMinutes();
-      var seconds = now.getSeconds();
-
-      hours = hours < 10 ? '0' + hours : hours;
-      minutes = minutes < 10 ? '0' + minutes : minutes;
-      seconds = seconds < 10 ? '0' + seconds : seconds;
-
-      var clockElement = document.getElementById('clock');
-      clockElement.textContent = hours + ':' + minutes + ':' + seconds;
+<button id="back-button" onclick="scrollToTop()">Back to Top</button>
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
-    setInterval(updateClock, 1000);
-    updateClock();
-  </script>
+    document.addEventListener("scroll", function () {
+        var backToTopButton = document.getElementById("back-button");
+        backToTopButton.style.display = window.scrollY > 500 ? "block" : "none";
+    });
+</script>
 
     <script src="dist/js/menu.js"></script>
     <script src="dist/js/lightbox-plus-jquery.js"></script>
