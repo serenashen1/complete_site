@@ -231,19 +231,21 @@
       setInterval(updateClock, 1000);
       updateClock();
     </script>
+
+
+    <button id="back-button" onclick="scrollToTop()">Back to Top</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        document.addEventListener("scroll", function () {
+            var backToTopButton = document.getElementById("back-button");
+            backToTopButton.style.display = window.scrollY > 500 ? "block" : "none";
+        });
+    </script>
+
     
 </body>
-
-<button id="back-button" onclick="scrollToTop()">Back to Top</button>
-<script>
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    document.addEventListener("scroll", function () {
-        var backToTopButton = document.getElementById("back-button");
-        backToTopButton.style.display = window.scrollY > 500 ? "block" : "none";
-    });
-</script>
 
     <script src="dist/js/menu.js"></script>
     <script src="dist/js/lightbox-plus-jquery.js"></script>
